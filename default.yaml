@@ -1,0 +1,14 @@
+# JavaScript 3D library.
+# Dependencies: https://github.com/next-theme/hexo-next-three
+three:
+  enable: false
+  cdn:
+  waves:
+    enable: false
+    cdn:
+  lines:
+    enable: false
+    cdn:
+  sphere:
+    enable: false
+    cdn:
