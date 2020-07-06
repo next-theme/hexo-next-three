@@ -32,24 +32,18 @@
     camera = new THREE.PerspectiveCamera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000);
     camera.position.z = 1000;
     scene = new THREE.Scene();
-    renderer = new THREE.CanvasRenderer({
+    renderer = new THREE.WebGLRenderer({
       alpha: true
     });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
     container.appendChild(renderer.domElement);
     // particles
-    var PI2 = Math.PI * 2;
-    var material = new THREE.SpriteCanvasMaterial({
-      color: 10263708,
-      program: function (context) {
-        context.beginPath();
-        context.arc(0, 0, 0.5, 0, PI2, true);
-        context.fill();
-      }
+    var material = new THREE.MeshBasicMaterial({
+      color: 10263708
     });
     for (var i = 0; i < 1000; i++) {
-      particle = new THREE.Sprite(material);
+      particle = new THREE.Mesh(new THREE.SphereGeometry(.5, 15, 15), material);
       particle.position.x = Math.random() * 2 - 1;
       particle.position.y = Math.random() * 2 - 1;
       particle.position.z = Math.random() * 2 - 1;
