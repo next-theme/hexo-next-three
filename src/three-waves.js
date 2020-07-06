@@ -1,3 +1,6 @@
+/*
+ * https://github.com/mrdoob/three.js/blob/r118/examples/webgl_points_waves.html
+ */
 (function () {
   var SEPARATION = 100,
     AMOUNTX = 50,

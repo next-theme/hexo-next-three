@@ -1,5 +1,6 @@
 /**
  * Created by Tang on 2017/4/15.
+ * https://github.com/mrdoob/three.js/blob/r118/examples/webgl_lines_sphere.html
  */
 (function () {
   var SCREEN_WIDTH = window.innerWidth,
