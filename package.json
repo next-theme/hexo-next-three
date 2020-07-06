@@ -2,7 +2,7 @@
   "name": "theme-next-three",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:theme-next/theme-next-three.git",
+  "repository": "git@github.com:next-theme/theme-next-three.git",
   "author": "Raincal <cyj94228@gmail.com>",
   "license": "MIT",
   "scripts": {

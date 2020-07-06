@@ -19,7 +19,7 @@ _config.yml  crowdin.yml  docs  gulpfile.js  languages  layout  LICENSE.md  pack
 Install module to `source/lib` directory:
 
 ```sh
-$ git clone https://github.com/theme-next/theme-next-three source/lib/three
+$ git clone https://github.com/next-theme/theme-next-three source/lib/three
 ```
 
 <h2 align="center">Step 3 &rarr; Set it up</h2>
@@ -39,10 +39,10 @@ canvas_sphere: true
 ```yml
 vendors:
   ...
-  three: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js
-  three_waves: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@latest/three-waves.min.js
-  canvas_lines: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@latest/canvas_lines.min.js
-  canvas_sphere: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@latest/canvas_sphere.min.js
+  three: //cdn.jsdelivr.net/gh/next-theme/theme-next-three@1/three.min.js
+  three_waves: //cdn.jsdelivr.net/gh/next-theme/theme-next-three@latest/three-waves.min.js
+  canvas_lines: //cdn.jsdelivr.net/gh/next-theme/theme-next-three@latest/canvas_lines.min.js
+  canvas_sphere: //cdn.jsdelivr.net/gh/next-theme/theme-next-three@latest/canvas_sphere.min.js
 ```
 
 <h1 align="center">Update</h1>
