@@ -1,4 +1,4 @@
-$(function () {
+(function () {
   var SEPARATION = 100,
     AMOUNTX = 50,
     AMOUNTY = 50;
@@ -88,4 +88,4 @@ $(function () {
     renderer.render(scene, camera);
     count += 0.1
   }
-});
+})();

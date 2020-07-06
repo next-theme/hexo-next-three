@@ -12,7 +12,7 @@ gulp.task('scripts', async () => {
   const sourceFiles = fs.readdirSync('src')
   sourceFiles.forEach(file => {
     const fileName = file.split('.')[0]
-    return gulp.src([`src/${fileName}.js`, 'lib/*.js'])
+    return gulp.src(['lib/*.js', `src/${fileName}.js`])
       .pipe(concat(`${fileName}.min.js`))
       .pipe(uglify())
       .pipe(gulp.dest('./'))

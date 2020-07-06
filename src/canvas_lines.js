@@ -1,7 +1,7 @@
 /**
  * Created by Tang on 2017/4/15.
  */
-$(function () {
+(function () {
   var mouseX = 0,
     mouseY = 0,
     windowHalfX = window.innerWidth / 2,
@@ -111,4 +111,4 @@ $(function () {
     camera.lookAt(scene.position);
     renderer.render(scene, camera);
   }
-})
+})();
