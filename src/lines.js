@@ -37,22 +37,23 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
     // particles
+    var geometry = new THREE.SphereGeometry(5, 15, 15);
     var material = new THREE.MeshBasicMaterial({
       color: 10263708
     });
-    var geometry = new THREE.Geometry();
+    var lines = new THREE.Geometry();
     for (var i = 0; i < 100; i++) {
-      particle = new THREE.Mesh(new THREE.SphereGeometry(5, 15, 15), material);
+      particle = new THREE.Mesh(geometry, material);
       particle.position.x = Math.random() * 2 - 1;
       particle.position.y = Math.random() * 2 - 1;
       particle.position.z = Math.random() * 2 - 1;
       particle.position.normalize();
       particle.position.multiplyScalar(Math.random() * 10 + 450);
       scene.add(particle);
-      geometry.vertices.push(particle.position);
+      lines.vertices.push(particle.position);
     }
     // lines
-    var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({
+    var line = new THREE.Line(lines, new THREE.LineBasicMaterial({
       color: 10263708,
       opacity: 0.8
     }));

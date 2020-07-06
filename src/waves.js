@@ -28,13 +28,14 @@
     scene = new THREE.Scene();
     particles = [];
 
+    var geometry = new THREE.SphereGeometry(.5, 15, 15);
     var material = new THREE.MeshBasicMaterial({
       color: 10263708
     });
     var i = 0;
     for (var ix = 0; ix < AMOUNTX; ix++) {
       for (var iy = 0; iy < AMOUNTY; iy++) {
-        particle = particles[i++] = new THREE.Mesh(new THREE.SphereGeometry(.5, 15, 15), material);
+        particle = particles[i++] = new THREE.Mesh(geometry, material);
         particle.position.x = ix * SEPARATION - ((AMOUNTX * SEPARATION) / 2);
         particle.position.z = iy * SEPARATION - ((AMOUNTY * SEPARATION) / 2);
         scene.add(particle)
@@ -80,7 +81,7 @@
       for (var iy = 0; iy < AMOUNTY; iy++) {
         particle = particles[i++];
         particle.position.y = (Math.sin((ix + count) * 0.3) * 50) + (Math.sin((iy + count) * 0.5) * 50);
-        particle.scale.x = particle.scale.y = (Math.sin((ix + count) * 0.3) + 1) * 4 + (Math.sin((iy + count) * 0.5) + 1) * 4
+        particle.scale.x = particle.scale.y = particle.scale.z = (Math.sin((ix + count) * 0.3) + 1) * 4 + (Math.sin((iy + count) * 0.5) + 1) * 4
       }
     }
     renderer.render(scene, camera);

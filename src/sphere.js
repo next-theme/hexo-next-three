@@ -40,11 +40,12 @@
     renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
     container.appendChild(renderer.domElement);
     // particles
+    var geometry = new THREE.SphereGeometry(.5, 15, 15);
     var material = new THREE.MeshBasicMaterial({
       color: 10263708
     });
     for (var i = 0; i < 1000; i++) {
-      particle = new THREE.Mesh(new THREE.SphereGeometry(.5, 15, 15), material);
+      particle = new THREE.Mesh(geometry, material);
       particle.position.x = Math.random() * 2 - 1;
       particle.position.y = Math.random() * 2 - 1;
       particle.position.z = Math.random() * 2 - 1;
