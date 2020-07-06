@@ -2,6 +2,7 @@
 # Dependencies: https://github.com/next-theme/hexo-next-three
 three:
   enable: false
+  defer: true
   cdn:
   waves:
     enable: false

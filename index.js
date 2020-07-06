@@ -25,12 +25,14 @@ hexo.extend.filter.register('theme_inject', injects => {
     if (config[name].enable) scripts.push(config[name].cdn || `lib/${name}.js`);
   });
 
-  const html = scripts.map(script => `<script src="{{ url_for("${script}") }}"></script>`).join('');
+  const html = scripts.map(script => {
+    return `<script${config.defer ? ' defer' : ''} src="{{ url_for("${script}") }}"></script>`;
+  }).join('');
   injects.footer.raw('three', html);
 });
 
 hexo.extend.generator.register('three', () => {
-  let files = [generator(require.resolve('three')), 'lib/three.js'];
+  let files = [generator(require.resolve('three'), 'lib/three.js')];
   ['lines', 'sphere', 'waves'].forEach(name => {
     files.push(generator(path.join(__dirname, `src/${name}.js`), `lib/${name}.js`));
   });
