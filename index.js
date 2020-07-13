@@ -2,7 +2,7 @@
 
 'use strict';
 
-const Util = require('next-util');
+const Util = require('@next-theme/utils');
 const utils = new Util(hexo, __dirname);
 const path = require('path');
 const Terser = require('terser');
