@@ -3,24 +3,28 @@
  * https://github.com/mrdoob/three.js/blob/r118/examples/webgl_lines_sphere.html
  */
 (function () {
-  var SCREEN_WIDTH = window.innerWidth,
-    SCREEN_HEIGHT = window.innerHeight,
-    mouseX = 0,
-    mouseY = 0,
-    windowHalfX = window.innerWidth / 2,
-    windowHalfY = window.innerHeight / 2,
-    SEPARATION = 200,
-    AMOUNTX = 10,
-    AMOUNTY = 10,
-    camera, scene, renderer;
+  const SCREEN_WIDTH = window.innerWidth;
+  const SCREEN_HEIGHT = window.innerHeight;
+  let mouseX = 0;
+  let mouseY = 0;
+  let windowHalfX = window.innerWidth / 2;
+  let windowHalfY = window.innerHeight / 2;
+  const SEPARATION = 200;
+  const AMOUNTX = 10;
+  const AMOUNTY = 10;
+  let camera;
+  let scene;
+  let renderer;
   init();
   animate();
 
   function init() {
-    var container, separation = 100,
-      amountX = 50,
-      amountY = 50,
-      particles, particle;
+    let container;
+    const separation = 100;
+    const amountX = 50;
+    const amountY = 50;
+    let particles;
+    let particle;
     container = document.createElement('div');
     // 设置css
     container.style.position = "fixed";
@@ -40,11 +44,11 @@
     renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
     container.appendChild(renderer.domElement);
     // particles
-    var geometry = new THREE.SphereGeometry(.5, 15, 15);
-    var material = new THREE.MeshBasicMaterial({
+    let geometry = new THREE.SphereGeometry(.5, 15, 15);
+    const material = new THREE.MeshBasicMaterial({
       color: 10263708
     });
-    for (var i = 0; i < 1000; i++) {
+    for (let i = 0; i < 1000; i++) {
       particle = new THREE.Mesh(geometry, material);
       particle.position.x = Math.random() * 2 - 1;
       particle.position.y = Math.random() * 2 - 1;
@@ -55,16 +59,16 @@
       scene.add(particle);
     }
     // lines
-    for (var i = 0; i < 300; i++) {
-      var geometry = new THREE.Geometry();
-      var vertex = new THREE.Vector3(Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1);
+    for (let i = 0; i < 300; i++) {
+      let geometry = new THREE.Geometry();
+      const vertex = new THREE.Vector3(Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1);
       vertex.normalize();
       vertex.multiplyScalar(450);
       geometry.vertices.push(vertex);
-      var vertex2 = vertex.clone();
+      const vertex2 = vertex.clone();
       vertex2.multiplyScalar(Math.random() * 0.3 + 1);
       geometry.vertices.push(vertex2);
-      var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({
+      const line = new THREE.Line(geometry, new THREE.LineBasicMaterial({
         color: 10263708,
         opacity: Math.random()
       }));

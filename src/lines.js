@@ -2,22 +2,26 @@
  * Created by Tang on 2017/4/15.
  */
 (function () {
-  var mouseX = 0,
-    mouseY = 0,
-    windowHalfX = window.innerWidth / 2,
-    windowHalfY = window.innerHeight / 2,
-    SEPARATION = 200,
-    AMOUNTX = 10,
-    AMOUNTY = 10,
-    camera, scene, renderer;
+  let mouseX = 0;
+  let mouseY = 0;
+  let windowHalfX = window.innerWidth / 2;
+  let windowHalfY = window.innerHeight / 2;
+  const SEPARATION = 200;
+  const AMOUNTX = 10;
+  const AMOUNTY = 10;
+  let camera;
+  let scene;
+  let renderer;
   init();
   animate();
 
   function init() {
-    var container, separation = 100,
-      amountX = 50,
-      amountY = 50,
-      particles, particle;
+    let container;
+    const separation = 100;
+    const amountX = 50;
+    const amountY = 50;
+    let particles;
+    let particle;
     container = document.createElement('div');
     // 设置css
     container.style.position = "fixed";
@@ -37,12 +41,12 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
     // particles
-    var geometry = new THREE.SphereGeometry(5, 15, 15);
-    var material = new THREE.MeshBasicMaterial({
+    const geometry = new THREE.SphereGeometry(5, 15, 15);
+    const material = new THREE.MeshBasicMaterial({
       color: 10263708
     });
-    var lines = new THREE.Geometry();
-    for (var i = 0; i < 100; i++) {
+    const lines = new THREE.Geometry();
+    for (let i = 0; i < 100; i++) {
       particle = new THREE.Mesh(geometry, material);
       particle.position.x = Math.random() * 2 - 1;
       particle.position.y = Math.random() * 2 - 1;
@@ -53,7 +57,7 @@
       lines.vertices.push(particle.position);
     }
     // lines
-    var line = new THREE.Line(lines, new THREE.LineBasicMaterial({
+    const line = new THREE.Line(lines, new THREE.LineBasicMaterial({
       color: 10263708,
       opacity: 0.8
     }));
