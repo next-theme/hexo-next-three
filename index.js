@@ -8,7 +8,7 @@ const path = require('path');
 const Terser = require('terser');
 
 function generator(src, dist) {
-  let code = utils.getFileContent(src);
+  const code = utils.getFileContent(src);
   return {
     path: dist,
     data: Terser.minify(code).code
@@ -17,10 +17,10 @@ function generator(src, dist) {
 
 hexo.extend.filter.register('theme_inject', injects => {
 
-  let config = utils.defaultConfigFile('three', 'default.yaml');
+  const config = utils.defaultConfigFile('three', 'default.yaml');
   if (!config.enable) return;
 
-  let scripts = [config.cdn || 'lib/three.js'];
+  const scripts = [config.cdn || 'lib/three.js'];
   ['lines', 'sphere', 'waves'].forEach(name => {
     if (config[name].enable) scripts.push(config[name].cdn || `lib/${name}.js`);
   });
@@ -32,7 +32,7 @@ hexo.extend.filter.register('theme_inject', injects => {
 });
 
 hexo.extend.generator.register('three', () => {
-  let files = [generator(require.resolve('three'), 'lib/three.js')];
+  const files = [generator(require.resolve('three'), 'lib/three.js')];
   ['lines', 'sphere', 'waves'].forEach(name => {
     files.push(generator(path.join(__dirname, `src/${name}.js`), `lib/${name}.js`));
   });
