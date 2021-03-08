@@ -6,13 +6,18 @@ const Util = require('@next-theme/utils');
 const utils = new Util(hexo, __dirname);
 const path = require('path');
 const Terser = require('terser');
+const Promise = require('bluebird');
 
-function generator(src, dist) {
+function generator([src, dist]) {
   const code = utils.getFileContent(src);
-  return {
-    path: dist,
-    data: Terser.minify(code).code
-  };
+  return new Promise((resolve, reject) => {
+    Terser.minify(code).then(({ code }) => {
+      resolve({
+        path: dist,
+        data: code
+      });
+    });
+  });
 }
 
 hexo.extend.filter.register('theme_inject', injects => {
@@ -31,10 +36,10 @@ hexo.extend.filter.register('theme_inject', injects => {
   injects.footer.raw('three', html);
 });
 
-hexo.extend.generator.register('three', () => {
-  const files = [generator(require.resolve('three'), 'lib/three.js')];
+hexo.extend.generator.register('three', async () => {
+  const files = [[require.resolve('three'), 'lib/three.js']];
   ['lines', 'sphere', 'waves'].forEach(name => {
-    files.push(generator(path.join(__dirname, `src/${name}.js`), `lib/${name}.js`));
+    files.push([path.join(__dirname, `src/${name}.js`), `lib/${name}.js`]);
   });
-  return files;
+  return files.map(generator);
 });
