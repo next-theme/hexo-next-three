@@ -1,12 +1,9 @@
 {
   "name": "hexo-next-three",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "JavaScript 3D library for NexT",
   "main": "index.js",
-  "scripts": {
-    "build": "terser"
-  },
-  "repository": "git@github.com:next-theme/hexo-next-three.git",
+  "repository": "next-theme/hexo-next-three",
   "author": "jjandxa <jjandxa@gmail.com>",
   "maintainers": [
     "Raincal <cyj94228@gmail.com>",
