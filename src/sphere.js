@@ -60,14 +60,16 @@
     }
     // lines
     for (let i = 0; i < 300; i++) {
-      let geometry = new THREE.Geometry();
+      let geometry = new THREE.BufferGeometry();
+      let points = [];
       const vertex = new THREE.Vector3(Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1);
       vertex.normalize();
       vertex.multiplyScalar(450);
-      geometry.vertices.push(vertex);
+      points.push(vertex);
       const vertex2 = vertex.clone();
       vertex2.multiplyScalar(Math.random() * 0.3 + 1);
-      geometry.vertices.push(vertex2);
+      points.push(vertex2);
+      geometry.setFromPoints(points);
       const line = new THREE.Line(geometry, new THREE.LineBasicMaterial({
         color: 10263708,
         opacity: Math.random()

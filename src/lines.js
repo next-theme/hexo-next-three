@@ -45,7 +45,8 @@
     const material = new THREE.MeshBasicMaterial({
       color: 10263708
     });
-    const lines = new THREE.Geometry();
+    const lines = new THREE.BufferGeometry();
+    const points = [];
     for (let i = 0; i < 100; i++) {
       particle = new THREE.Mesh(geometry, material);
       particle.position.x = Math.random() * 2 - 1;
@@ -54,8 +55,9 @@
       particle.position.normalize();
       particle.position.multiplyScalar(Math.random() * 10 + 450);
       scene.add(particle);
-      lines.vertices.push(particle.position);
+      points.push(particle.position);
     }
+    lines.setFromPoints(points);
     // lines
     const line = new THREE.Line(lines, new THREE.LineBasicMaterial({
       color: 10263708,
