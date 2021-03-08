@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@next-theme/utils": "^1.1.0",
-    "terser": "^4.8.0",
+    "terser": "^5.0.0",
     "three": "^0.126.1"
   }
 }
