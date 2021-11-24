@@ -7,7 +7,6 @@
   let camera, scene, renderer;
   let particles, particle, count = 0;
   let mouseX = 0;
-  const mouseY = 0;
   let windowHalfX = window.innerWidth / 2;
   let windowHalfY = window.innerHeight / 2;
   init();
@@ -36,7 +35,7 @@
         particle = particles[i++] = new THREE.Mesh(geometry, material);
         particle.position.x = ix * SEPARATION - ((AMOUNTX * SEPARATION) / 2);
         particle.position.z = iy * SEPARATION - ((AMOUNTY * SEPARATION) / 2);
-        scene.add(particle)
+        scene.add(particle);
       }
     }
     renderer = new THREE.WebGLRenderer({
@@ -46,7 +45,7 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
     document.addEventListener("mousemove", onDocumentMouseMove, false);
-    window.addEventListener("resize", onWindowResize, false)
+    window.addEventListener("resize", onWindowResize, false);
   }
 
   function onWindowResize() {
@@ -54,16 +53,16 @@
     windowHalfY = window.innerHeight / 2;
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight)
+    renderer.setSize(window.innerWidth, window.innerHeight);
   }
 
   function onDocumentMouseMove(event) {
-    mouseX = event.clientX - windowHalfX
+    mouseX = event.clientX - windowHalfX;
   }
 
   function animate() {
     requestAnimationFrame(animate);
-    render()
+    render();
   }
 
   function render() {
@@ -79,10 +78,10 @@
       for (let iy = 0; iy < AMOUNTY; iy++) {
         particle = particles[i++];
         particle.position.y = (Math.sin((ix + count) * 0.3) * 50) + (Math.sin((iy + count) * 0.5) * 50);
-        particle.scale.x = particle.scale.y = particle.scale.z = (Math.sin((ix + count) * 0.3) + 1) * 4 + (Math.sin((iy + count) * 0.5) + 1) * 4
+        particle.scale.x = particle.scale.y = particle.scale.z = (Math.sin((ix + count) * 0.3) + 1) * 4 + (Math.sin((iy + count) * 0.5) + 1) * 4;
       }
     }
     renderer.render(scene, camera);
-    count += 0.1
+    count += 0.1;
   }
 })();

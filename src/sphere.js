@@ -9,9 +9,6 @@
   let mouseY = 0;
   let windowHalfX = window.innerWidth / 2;
   let windowHalfY = window.innerHeight / 2;
-  const SEPARATION = 200;
-  const AMOUNTX = 10;
-  const AMOUNTY = 10;
   let camera;
   let scene;
   let renderer;
@@ -20,10 +17,6 @@
 
   function init() {
     let container;
-    const separation = 100;
-    const amountX = 50;
-    const amountY = 50;
-    let particles;
     let particle;
     container = document.createElement('div');
     // 设置css
