@@ -6,18 +6,13 @@ const Util = require('@next-theme/utils');
 const utils = new Util(hexo, __dirname);
 const path = require('path');
 const Terser = require('terser');
-const Promise = require('bluebird');
 
 function generator([src, dist]) {
   const code = utils.getFileContent(src);
-  return new Promise((resolve, reject) => {
-    Terser.minify(code).then(({ code }) => {
-      resolve({
-        path: dist,
-        data: code
-      });
-    });
-  });
+  return Terser.minify(code).then(({ code }) => ({
+    path: dist,
+    data: code
+  }));
 }
 
 hexo.extend.filter.register('theme_inject', injects => {
