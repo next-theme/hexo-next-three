@@ -7,10 +7,10 @@ const utils = new Util(hexo, __dirname);
 const path = require('path');
 const Terser = require('terser');
 
-function generator([src, dist]) {
+function generator({ src, dest }) {
   const code = utils.getFileContent(src);
   return Terser.minify(code).then(({ code }) => ({
-    path: dist,
+    path: dest,
     data: code
   }));
 }
@@ -32,9 +32,10 @@ hexo.extend.filter.register('theme_inject', injects => {
 });
 
 hexo.extend.generator.register('three', async () => {
-  const files = [[require.resolve('three'), 'lib/three.js']];
+  // Bypass ERR_PACKAGE_PATH_NOT_EXPORTED
+  const files = [{ src: require.resolve('./node_modules/three/build/three.js'), dest: 'lib/three.js' }];
   ['lines', 'sphere', 'waves'].forEach(name => {
-    files.push([path.join(__dirname, `src/${name}.js`), `lib/${name}.js`]);
+    files.push({ src: path.join(__dirname, `src/${name}.js`), dest: `lib/${name}.js` });
   });
   return files.map(generator);
 });
