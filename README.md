@@ -22,6 +22,8 @@ npm install next-theme/hexo-next-three
 # Dependencies: https://github.com/next-theme/hexo-next-three
 three:
   enable: true
+  # CDN must use ESM version.
+  # e.g. https://cdn.jsdelivr.net/npm/three@latest/build/three.module.min.js
   cdn:
   waves:
     enable: false
