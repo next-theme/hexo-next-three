@@ -22,7 +22,6 @@ npm install next-theme/hexo-next-three
 # Dependencies: https://github.com/next-theme/hexo-next-three
 three:
   enable: true
-  defer: true
   cdn:
   waves:
     enable: false
