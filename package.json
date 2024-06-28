@@ -13,6 +13,6 @@
   "dependencies": {
     "@next-theme/utils": "^1.1.0",
     "terser": "^5.0.0",
-    "three": "^0.163.0"
+    "three": "^0.166.0"
   }
 }
